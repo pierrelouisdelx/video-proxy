@@ -29,11 +29,7 @@ export default function Home() {
           <button onClick={handleVideo}>Submit</button>
         </div>
         <div className='flex'>
-          <video controls autoPlay>
-            {
-              url.current && url.current.value !== '' ? <source src={`http://localhost:3001/video/${video}`} type="video/mp4" /> : null
-            }
-          </video>
+          <video controls autoPlay src={url.current && url.current.value !== '' ? `http://localhost:3001/video/${video}` : ''} />
         </div>
       </main>
     </div>
