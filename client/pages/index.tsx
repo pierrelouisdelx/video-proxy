@@ -23,13 +23,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <div className='flex'>
-          <input type="text" placeholder="Enter video URL" ref={url}/>
-          <button onClick={handleVideo}>Submit</button>
+      <main className='flex flex-col items-center justify-center w-screen h-screen bg-[#0f172a]'>
+        <div className='flex items-center w-[640px]'>
+          <input type="text" placeholder="Enter video URL" ref={url} className='my-5 p-2 bg-[#283447] text-white rounded-2xl grow-[3]' />
+          <button onClick={handleVideo} className='bg-[#38bdf8] px-5 py-2 ml-2 text-white rounded-2xl grow-[1]'>Submit</button>
         </div>
         <div className='flex'>
-          <video controls autoPlay src={url.current && url.current.value !== '' ? `http://localhost:3001/video/${video}` : ''} />
+          <video controls autoPlay width='640px' height='480px' src={url.current && url.current.value !== '' ? `http://localhost:3001/video/${video}` : ''} />
         </div>
       </main>
     </div>
