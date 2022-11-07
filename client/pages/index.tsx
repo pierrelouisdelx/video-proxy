@@ -30,7 +30,9 @@ export default function Home() {
         </div>
         <div className='flex'>
           <video controls autoPlay>
-            <source src={`http://localhost:3001/video/${video}`} type="video/mp4" />
+            {
+              url.current && url.current.value !== '' ? <source src={`http://localhost:3001/video/${video}`} type="video/mp4" /> : null
+            }
           </video>
         </div>
       </main>
