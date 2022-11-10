@@ -16,7 +16,8 @@ export class ProxyRouter {
         const url = decodeURIComponent(req.params.url);
 
         const range = req.headers.range;
-        if (!range) return res.status(400).send('Requires Range header');
+        if (!range)
+            return res.status(400).send('Requires Range header');
 
         const CHUNK_SIZE = 10 ** 6; // 1MB
 
