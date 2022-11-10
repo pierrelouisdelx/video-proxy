@@ -1,33 +1,30 @@
 import { Request, Response, Router } from 'express';
-import axios from 'axios';
+import got from 'got';
 
 export class ProxyRouter {
-  public static init(router: Router): Router {
-    router.get('/video/:url', ProxyRouter.proxy);
-    router.get('/', ProxyRouter.hello);
-    return router;
-  }
+    public static init(router: Router): Router {
+        router.get('/video/:url', ProxyRouter.proxy);
+        router.get('/', ProxyRouter.hello);
+        return router;
+    }
 
-  private static hello(req: Request, res: Response): void {
-    res.send('Hello from ProxyRouter');
-  }
+    private static hello(req: Request, res: Response): void {
+        res.send('Hello from ProxyRouter');
+    }
 
-  private static proxy(req: Request, res: Response): Promise<Response> {
-    const url = decodeURIComponent(req.params.url);
+    private static async proxy(req: Request, res: Response): Promise<Response> {
+        const url = decodeURIComponent(req.params.url);
 
-    axios
-      .get(url, {
-        responseType: 'stream'
-      })
-      .then((stream) => {
-        res.writeHead(stream.status, stream.headers);
-        stream.data.pipe(res);
-      })
-      .catch((err) => {
-        console.error(err.message);
-        res.send(err);
-      });
+        const range = req.headers.range;
+        if (!range) return res.status(400).send('Requires Range header');
 
-    return Promise.resolve(res);
-  }
+        const CHUNK_SIZE = 10 ** 6; // 1MB
+
+        const start = Number(range?.replace(/\D/g, ''));
+        const end = start + CHUNK_SIZE;
+
+        got.stream(url, { headers: { range: `bytes=${start}-${end}` } }).pipe(res);
+
+        return res;
+    }
 }
