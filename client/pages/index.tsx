@@ -20,15 +20,18 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
 
-            <main className='flex flex-col items-center justify-center w-screen h-screen bg-[#0f172a]'>
+            <main className='flex flex-col items-center justify-center h-screen bg-[#0b1120] font-mono'>
+                <h1 className="text-white text-3xl font-bold mt-10">Node Video Proxy</h1>
+                <div className="flex flex-col items-center justify-center w-full h-full">
                 <div className='flex items-center'>
-                    <input type='text' placeholder='Enter video URL' ref={url} className='my-5 p-2 bg-[#283447] text-white rounded-2xl grow-[3]' />
-                    <button onClick={handleVideo} className='bg-[#38bdf8] px-5 py-2 ml-2 text-white rounded-2xl grow-[1]'>
+                    <input type='text' placeholder='Enter video URL' ref={url} className='my-5 p-2 bg-[#1e293b] rounded-2xl grow-[3] outline-none text-[#CBD5E1]' />
+                    <button onClick={handleVideo} className='bg-[#0ea5e9] px-5 py-2 ml-2 text-white rounded-2xl grow-[1] hover:bg-sky-400'>
                         Submit
                     </button>
                 </div>
                 <div className='flex mx-[9px]'>
-                    <video controls autoPlay width='640px' height='480px' src={url.current && url.current.value !== '' ? `http://localhost:3001/video/${video}` : ''} />
+                    <video className='rounded-3xl' controls autoPlay width='640px' height='480px' src={url.current && url.current.value !== '' ? `http://localhost:3001/video/${video}` : ''} />
+                </div>
                 </div>
             </main>
         </div>
