@@ -28,13 +28,11 @@ The proxy server is built using Node.js and Express. The server is configured to
 
 The client is built using NextJS, React, TailwindCSS and Typescript. The client is configured to listen on port 3000. The client has a single page, `/`, which accepts a URL in the input field. When the user clicks the "Submit" button, the client will make a request to the proxy server, and then stream the video to the client.
 
-## Installation
+## Usage
+In both the `client` and `root` directories, run the following command to install the dependencies:
+
 ```bash
 yarn
-```
-
-## Usage
-```bash
 yarn dev
 ```
 
