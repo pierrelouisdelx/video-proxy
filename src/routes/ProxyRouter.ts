@@ -21,7 +21,7 @@ export class ProxyRouter {
 
         const CHUNK_SIZE = 10 ** 6; // 1MB
 
-        const start = Number(range?.replace(/\D/g, ''));
+        const start = Number(range?.split('-')[0].replace(/\D/g, ''));
         const end = start + CHUNK_SIZE;
 
         got.stream(url, { headers: { range: `bytes=${start}-${end}` } }).pipe(res);
