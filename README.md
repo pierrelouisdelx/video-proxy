@@ -20,6 +20,8 @@ To get around this, we can create a server that makes a direct request on our be
 
 The chunks are set to be 1MB in size, but this can be changed by modifying the `CHUNK_SIZE` variable in `ProxyRouter.ts`.
 
+## Browser Support
+
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png) 
 --- | --- |
 Latest ✔ | Latest ✔ |
