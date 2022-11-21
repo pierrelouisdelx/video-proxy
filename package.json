@@ -2,10 +2,9 @@
   "name": "video-proxy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "start": "ts-node src/index.js"
+    "start": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
