@@ -44,8 +44,8 @@ The client is built using NextJS, React, TailwindCSS and Typescript. The client 
 In both the `client` and `root` directories, run the following command to install the dependencies:
 
 ```bash
-yarn
-yarn dev
+npm install
+npm run dev
 ```
 
 ## License
