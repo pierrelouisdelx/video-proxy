@@ -22,9 +22,9 @@ The chunks are set to be 1MB in size, but this can be changed by modifying the `
 
 ## Browser Support
 
-![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png) 
---- | --- |
-Latest ✔ | Latest ✔ |
+| ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png) |
+| ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Latest ✔                                                                                          | Latest ✔                                                                                             |
 
 For the other browser, they are not yet tested.
 
@@ -41,6 +41,18 @@ The proxy server is built using Node.js and Express. The server is configured to
 The client is built using NextJS, React, TailwindCSS and Typescript. The client is configured to listen on port 3000. The client has a single page, `/`, which accepts a URL in the input field. When the user clicks the "Submit" button, the client will make a request to the proxy server, and then stream the video to the client.
 
 ## Usage
+
+### Docker
+
+The easiest way to run this project is to use Docker. To run the project using Docker, you will need to have Docker amd docker-compose installed on your machine.
+To run the docker-compose file, run the following command:
+
+```bash
+docker-compose up
+```
+
+### npm
+
 In both the `client` and `root` directories, run the following command to install the dependencies:
 
 ```bash
@@ -49,4 +61,5 @@ npm run dev
 ```
 
 ## License
+
 This project is licensed under the MIT License.
