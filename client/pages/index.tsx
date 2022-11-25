@@ -4,11 +4,6 @@ import React, { useState, useRef, useEffect } from 'react';
 export default function Home() {
     const url = useRef<HTMLInputElement>(null);
     const [video, setVideo] = useState('');
-    const [baseUrl, setBaseUrl] = useState('');
-
-    useEffect(() => {
-        setBaseUrl(process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL : 'http://localhost:3001');
-    }, []);
 
     const handleVideo = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
@@ -34,7 +29,7 @@ export default function Home() {
                         </button>
                     </div>
                     <div className='flex mx-[9px]'>
-                        <video className='rounded-3xl' controls autoPlay width='640px' height='480px' src={url.current && url.current.value !== '' ? `${baseUrl}/video/${video}` : ''} />
+                        <video className='rounded-3xl' controls autoPlay width='640px' height='480px' src={url?.current?.value !== '' ? `http://localhost:3001/video/${video}` : ''} />
                     </div>
                 </div>
             </main>
